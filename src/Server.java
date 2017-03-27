@@ -1,26 +1,20 @@
-/**
- * Created by think on 2017/3/26.
+/** Project description to be added.
+ *
  */
 
-import java.io.*;
-import java.net.*;
 
 
 public class Server {
-    public static void main(String[] args) {
-        try{
-//            int serverPort = Integer.parseInt(args[0]);
-            int serverPort = 8080;
-            ServerSocket socket = new ServerSocket(serverPort);
 
-            while(true) {
-                System.out.println("Listening...");
-                new MultiThread(socket.accept()).start();
-//                socket.close();
-            }
+//    Placeholder for publish function
+//    Placeholder for share function
 
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-    }
+
+//    Placeholder for fetch function
+//    Placeholder for remove function
+
+
+//    Placeholder for query function
+//    Placeholder for exchange function
+
 }
