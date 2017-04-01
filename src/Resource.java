@@ -2,9 +2,12 @@
  * The class Resource is an entity used for storing resources records.
  * The constructor of the class requires the value of uri, because uri
  * is a compulsory element of a resource.
+ * The class provides getters and setters for all attributes, and a
+ * toJSON function to return the whole resource in form of JSON.
  * @author: Jiayu Wang
  * @date: April 1, 2017
  */
+import net.sf.json.JSONObject;
 import java.util.ArrayList;
 
 
@@ -17,11 +20,12 @@ public class Resource {
     private String owner = "";
     private String ezServer = "";
 
-    //A URI is a compulsory element for resource.
+    //Constructor: A URI is a compulsory element for resource.
     public Resource(String uri) {
         this.uri = uri;
     }
 
+    //Getters and Setters
     public String getName() {
         return name;
     }
@@ -78,6 +82,24 @@ public class Resource {
         this.ezServer = ezServer;
     }
 
+    //toJSON function
+    public JSONObject toJSON() {
+        JSONObject myResource = new JSONObject();
+
+        myResource.put("name", getName());
+        myResource.put("tags", getTags());
+        myResource.put("description", getDescription());
+        myResource.put("uri", getUri());
+        myResource.put("channel", getChannel());
+        if (getOwner().equals("")) {
+            myResource.put("owner", getOwner());
+        } else {
+            myResource.put("owner", "*");
+        }
+        myResource.put("ezserver", getEzServer());
+
+        return myResource;
+    }
 
 }
 
